@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>University Facilities - Admin Dashboard</title>
+</head>
+
+<body>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>University Facilities - Admin Panel</h1>
+            </div>
+            <div class="user-info">
+                <span>Admin poorna</span>
+                <div class="user-avatar">AP</div>
+            </div>
+        </div>
+    </header>
+
+    <nav id="mainNav">
+        <ul>
+            <li onclick="showSection('dashboard')" id="nav-dashboard" class="active">
+                Dashboard
+            </li>
+            <li onclick="showSection('shops')" id="nav-shops">
+                Manage Shops
+            </li>
+            <li onclick="toggleUserDropdown()" id="nav-users">
+                Users <span id="arrow">▼</span>
+            </li>
+            <ul id="userSubmenu" class="submenu">
+                <li onclick="showUserSection('admin')" id="nav-admin">Admins</li>
+                <li onclick="showUserSection('shop-owners')" id="nav-shop-owners">Shop Owners</li>
+                <li onclick="showUserSection('signup')" id="nav-signup">Sign-Up Users</li>
+            </ul>
+            <li onclick="showSection('settings')" id="nav-settings">
+                Settings
+            </li>
+            <li onclick="showSection('reports')" id="nav-reports">
+                Reports
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section">
+            <h2>Dashboard</h2>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>Total Shops</h3>
+                    <div class="number">7</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Shop Owners</h3>
+                    <div class="number">5</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Users</h3>
+                    <div class="number">127</div>
+                </div>
+                <div class="stat-card">
+                    <h3>New Sign-ups</h3>
+                    <div class="number">12</div>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h3>Recent Activity</h3>
+                <div class="activity-item">
+                    <div>Admin added new shop "Coffee Corner"</div>
+                    <div class="activity-time">Today, 10:45 AM</div>
+                </div>
+                <div class="activity-item">
+                    <div>Shop owner "Nimal" updated shop hours</div>
+                    <div class="activity-time">Yesterday, 3:22 PM</div>
+                </div>
+                <div class="activity-item">
+                    <div>New user "kasun123" signed up</div>
+                    <div class="activity-time">Yesterday, 11:05 AM</div>
+                </div>
+                <div class="activity-item">
+                    <div>Admin updated "Bookshop" status to Closed</div>
+                    <div class="activity-time">May 8, 2025, 9:30 AM</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shops Section -->
+        <section id="shops" class="section hidden">
+            <h2>Manage Shops</h2>
+
+            <div class="search-bar">
+                <input type="text" id="shopSearch" placeholder="Search shops...">
+                <button onclick="searchShops()">🔍</button>
+            </div>
+
+            <div class="form-container">
+                <h3>Add New Shop</h3>
+                <form id="shopForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="shopName">Shop Name</label>
+                            <input type="text" id="shopName" placeholder="Shop Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="shopType">Shop Type</label>
+                            <select id="shopType" required>
+                                <option value="">Select Type</option>
+                                <option value="Canteen">Canteen</option>
+                                <option value="Bookshop">Bookshop</option>
+                                <option value="Cafe">Juice Bar</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="shopLocation">Location</label>
+                            <input type="text" id="shopLocation" placeholder="Location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="shopOwner">Owner Name</label>
+                            <input type="text" id="shopOwner" placeholder="Owner Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="shopContact">Contact</label>
+                            <input type="text" id="shopContact" placeholder="Phone or Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="shopHours">Opening Hours</label>
+                            <input type="text" id="shopHours" placeholder="e.g. 8 AM - 5 PM" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="shopStatus">Status</label>
+                            <select id="shopStatus" required>
+                                <option value="Open">Open</option>
+                                <option value="Closed">Closed</option>
+                                <option value="Renovating">Renovating</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Add Shop</button>
+                </form>
+            </div>
+
+            <div class="list-container">
+                <table id="shopTable">
+                    <thead>
+                        <tr>
+                            <th>Shop Name</th>
+                            <th>Type</th>
+                            <th>Location</th>
+                            <th>Owner</th>
+                            <th>Contact</th>
+                            <th>Hours</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="shopList">
+                        <tr>
+                            <td>Goda uda</td>
+                            <td>Canteen</td>
+                            <td>Main Building</td>
+                            <td>Nimal</td>
+                            <td>nimal@uom.lk</td>
+                            <td>7 AM - 8 PM</td>
+                            <td><span class="badge badge-success">Open</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-primary btn-small" onclick="editShop(this)">Edit</button>
+                                    <button class="btn-danger btn-small"
+                                        onclick="showDeleteConfirmation('shop', this)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>L canteen</td>
+                            <td>Canteen</td>
+                            <td>Business Building</td>
+                            <td>Wasantha</td>
+                            <td>Wasantha@uom.lk</td>
+                            <td>7 AM - 6 PM</td>
+                            <td><span class="badge badge-danger">Closed</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-primary btn-small" onclick="editShop(this)">Edit</button>
+                                    <button class="btn-danger btn-small"
+                                        onclick="showDeleteConfirmation('shop', this)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Users Sections -->
+        <section id="admin" class="user-section hidden">
+            <h2>Admin Management</h2>
+            <div class="search-bar">
+                <input type="text" id="adminSearch" placeholder="Search admins...">
+                <button onclick="searchAdmins()">🔍</button>
+            </div>
+
+            <div class="form-container">
+                <h3>Add New Admin</h3>
+                <form id="adminForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="adminName">Name</label>
+                            <input type="text" id="adminName" placeholder="Admin Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminEmail">Email</label>
+                            <input type="email" id="adminEmail" placeholder="admin@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminRole">Role</label>
+                            <select id="adminRole" required>
+                                <option value="Super Admin">Super Admin</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Moderator">Moderator</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Add Admin</button>
+                </form>
+            </div>
+
+            <div class="list-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminList">
+                        <tr>
+                            <td>1</td>
+                            <td>Poorna</td>
+                            <td>poorna@uom.lk</td>
+                            <td>Super Admin</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-primary btn-small" onclick="editAdmin(this)">Edit</button>
+                                    <button class="btn-danger btn-small"
+                                        onclick="showDeleteConfirmation('admin', this)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Kumara</td>
+                            <td>kumara@uom.lk</td>
+                            <td>Admin</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-primary btn-small" onclick="editAdmin(this)">Edit</button>
+                                    <button class="btn-danger btn-small"
+                                        onclick="showDeleteConfirmation('admin', this)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="shop-owners" class="user-section hidden">
+            <h2>Shop Owners Management</h2>
+            
+            <div class="search-bar">
+                <input type="text" id="ownerSearch" placeholder="Search shop owners...">
+                <button onclick="searchOwners()">🔍</button>
+            </div>
+            
+            <div class="form-container">
+                <h3>Add New Shop Owner</h3>
+                <form id="ownerForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="ownerName">Owner Name</label>
+                            <input type="text" id="ownerName" placeholder="Owner Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ownerEmail">Email</label>
+                            <input type="email" id="ownerEmail" placeholder="owner@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ownerShop">Shop</label>
+                            <input type="text" id="ownerShop" placeholder="Shop Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ownerPhone">Phone</label>
+                            <input type="text" id="ownerPhone" placeholder="Phone Number" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Add Shop Owner</button>
+                </form>
+            </div>
+            
+            <div class="list-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Shop</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ownerList">
+                        <tr>
+                            <td>Goda uda</td>
+                            <td>Nimal</td>
+                            <td>nimal@uom.lk</td>
+                            <td>077-1234567</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-primary btn-small" onclick="editOwner(this)">Edit</button>
+                                    <button class="btn-danger btn-small"
+                                        onclick="showDeleteConfirmation('owner', this)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>L canteen</td>
+                            <td>Wasantha</td>
+                            <td>wasantha@uom.lk</td>
+                            <td>077-9876543</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-primary btn-small" onclick="editOwner(this)">Edit</button>
+                                    <button class="btn-danger btn-small"
+                                        onclick="showDeleteConfirmation('owner', this)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="signup" class="user-section hidden">
+            <h2>Sign-Up Users</h2>
+            
+            <div class="search-bar">
+                <input type="text" id="userSearch" placeholder="Search users...">
+                <button onclick="searchUsers()">🔍</button>
+            </div>
+            
+            <div class="list-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Registration Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userList">
+                        <tr>
+                            <td>kasun123</td>
+                            <td>kasun@gmail.com</td>
+                            <td>May 9, 2025</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-primary btn-small" onclick="viewUserDetails(this)">View</button>
+                                    <button class="btn-danger btn-small"
+                                        onclick="showDeleteConfirmation('user', this)">Block</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>mahela87</td>
+                            <td>mahela@gmail.com</td>
+                            <td>May 8, 2025</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-primary btn-small" onclick="viewUserDetails(this)">View</button>
+                                    <button class="btn-danger btn-small"
+                                        onclick="showDeleteConfirmation('user', this)">Block</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="section hidden">
+            <h2>Settings</h2>
+            <div class="form-container">
+                <h3>System Settings</h3>
+                <form id="settingsForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="siteName">Site Name</label>
+                            <input type="text" id="siteName" value="University Facilities" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="siteEmail">Contact Email</label>
+                            <input type="email" id="siteEmail" value="facilities@uom.lk" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="notificationEmail">Notification Email</label>
+                            <input type="email" id="notificationEmail" value="notifications@uom.lk" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="timezone">Timezone</label>
+                            <select id="timezone" required>
+                                <option value="UTC+5:30">Sri Lanka (UTC+5:30)</option>
+                                <option value="UTC">UTC</option>
+                                <option value="UTC+1">UTC+1</option>
+                                <option value="UTC+2">UTC+2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="maintenanceMode">Maintenance Mode</label>
+                            <select id="maintenanceMode" required>
+                                <option value="off">Off</option>
+                                <option value="on">On</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupApproval">Require Signup Approval</label>
+                            <select id="signupApproval" required>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Save Settings</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="section hidden">
+            <h2>Reports</h2>
+            <div class="form-container">
+                <h3>Generate Reports</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="reportType">Report Type</label>
+                        <select id="reportType">
+                            <option value="user">User Registration</option>
+                            <option value="shop">Shop Activities</option>
+                            <option value="system">System Activities</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reportPeriod">Time Period</label>
+                        <select id="reportPeriod">
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="quarterly">Quarterly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn-primary" onclick="generateReport()">Generate Report</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h3 class="modal-title">Confirm Deletion</h3>
+            <p id="deleteModalText">Are you sure you want to delete this item?</p>
+            <div class="modal-buttons">
+                <button class="btn-primary" onclick="closeModal()">Cancel</button>
+                <button class="btn-danger" id="confirmDeleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Shop Modal -->
+    <div id="editShopModal" class="modal">
+        <div class="modal-content">
+            <h3 class="modal-title">Edit Shop</h3>
+            <form id="editShopForm">
+                <input type="hidden" id="editShopId">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="editShopName">Shop Name</label>
+                        <input type="text" id="editShopName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editShopType">Shop Type</label>
+                        <select id="editShopType" required>
+                            <option value="Canteen">Canteen</option>
+                            <option value="Bookshop">Bookshop</option>
+                            <option value="Stationery">Stationery</option>
+                            <option value="Cafe">Cafe</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editShopLocation">Location</label>
+                        <input type="text" id="editShopLocation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editShopOwner">Owner Name</label>
+                        <input type="text" id="editShopOwner" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editShopContact">Contact</label>
+                        <input type="text" id="editShopContact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editShopHours">Opening Hours</label>
+                        <input type="text" id="editShopHours" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editShopStatus">Status</label>
+                        <select id="editShopStatus" required>
+                            <option value="Open">Open</option>
+                            <option value="Closed">Closed</option>
+                            <option value="Renovating">Renovating</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="btn-primary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Area (added dynamically) -->
+    <div id="notificationArea"></div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
