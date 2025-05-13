@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UOM Facilities Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="head-container">
+                <h2>UOM facilities - shop owners</h2>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">W</div>
+                <span>wasantha</span>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="nav-container">
+        <!-- Shop Type Selector moved here -->
+        <div class="shop-type-selector main-shop-selector">
+            <div class="shop-type">
+                <label for="main-shop-type">Shop Type:</label>
+                <select id="main-shop-type">
+                    <option value="canteen">Canteen</option>
+                    <option value="juicebar">Juice Bar</option>
+                    <option value="bookshop">Book Shop</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Navigation Overlay (Mobile) -->
+        <div class="nav-overlay"></div>
+
+        <!-- Navigation -->
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li class="food-nav-item"><a href="#foods">Foods</a></li>
+                <li class="juice-nav-item" style="display:none;"><a href="#foods">Drinks</a></li>
+                <li class="book-nav-item" style="display:none;"><a href="#foods">Books & Accessories</a></li>
+                <li class="preorder-nav-item"><a href="#preorders">Pre-orders</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section-content">
+            <h2>Dashboard Overview</h2>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>total orders</h3>
+                    <div class="number" id="total-orders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>pending orders</h3>
+                    <div class="number" id="pending-orders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>completed orders</h3>
+                    <div class="number" id="completed-orders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>total revenue</h3>
+                    <div class="number" id="total-revenue">$0</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Foods Section -->
+        <section id="foods" class="section-content">
+            <!-- Title changes based on shop type -->
+            <h2 id="items-section-title">Food Items</h2>
+
+            <div class="action-buttons">
+                <button class="action-btn add-btn">Add New Item</button>
+            </div>
+
+            <!-- Food categories (for canteen) -->
+            <div class="food-categories" id="food-categories">
+                <button class="category-tab" data-category="all">All</button>
+                <button class="category-tab" data-category="breakfast">Breakfast</button>
+                <button class="category-tab" data-category="lunch">Lunch</button>
+                <button class="category-tab" data-category="dinner">Dinner</button>
+                <button class="category-tab" data-category="dessert">Dessert</button>
+                <button class="category-tab" data-category="beverage">Beverage</button>
+            </div>
+
+            <!-- Juice categories (for juice bar) -->
+            <div class="food-categories" id="juice-categories" style="display:none;">
+                <button class="category-tab" data-category="all">All</button>
+                <button class="category-tab" data-category="fruit">Fruit Juices</button>
+                <button class="category-tab" data-category="milk">Milk Shakes</button>
+                <button class="category-tab" data-category="smoothie">Smoothies</button>
+                <button class="category-tab" data-category="healthy">Healthy Drinks</button>
+            </div>
+
+            <!-- Book categories (for book shop) -->
+            <div class="food-categories" id="book-categories" style="display:none;">
+                <button class="category-tab" data-category="all">All</button>
+                <button class="category-tab" data-category="textbook">Textbooks</button>
+                <button class="category-tab" data-category="novel">Novels</button>
+                <button class="category-tab" data-category="stationery">Stationery</button>
+                <button class="category-tab" data-category="accessory">Accessories</button>
+            </div>
+
+            <div class="food-items-header">
+                <h3 id="items-list-title">Menu Items</h3>
+            </div>
+
+            <!-- Food items list for canteen -->
+            <div class="food-items-list" id="food-items-list">
+                <!-- Sample Food Items -->
+                <div class="food-item" data-id="1" data-category="breakfast">
+                    <div class="food-item-info">
+                        <h4>Eggs Benedict</h4>
+                        <p>Rs12.99</p>
+                        <p class="item-available">Available</p>
+                    </div>
+                    <div class="food-item-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <div class="food-item" data-id="2" data-category="lunch">
+                    <div class="food-item-info">
+                        <h4>Chicken Caesar Salad</h4>
+                        <p>Rs10.99</p>
+                        <p class="item-available">Available</p>
+                    </div>
+                    <div class="food-item-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <div class="food-item" data-id="3" data-category="dinner">
+                    <div class="food-item-info">
+                        <h4>Grilled Salmon</h4>
+                        <p>Rs18.99</p>
+                        <p class="item-unavailable">Unavailable</p>
+                    </div>
+                    <div class="food-item-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Juice items list for juice bar (initially hidden) -->
+            <div class="food-items-list" id="juice-items-list" style="display:none;">
+                <div class="food-item" data-id="101" data-category="fruit">
+                    <div class="food-item-info">
+                        <h4>Orange Juice</h4>
+                        <p>Rs5.99</p>
+                        <p class="item-available">Available</p>
+                    </div>
+                    <div class="food-item-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <div class="food-item" data-id="102" data-category="milk">
+                    <div class="food-item-info">
+                        <h4>Chocolate Milkshake</h4>
+                        <p>Rs6.99</p>
+                        <p class="item-available">Available</p>
+                    </div>
+                    <div class="food-item-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <div class="food-item" data-id="103" data-category="smoothie">
+                    <div class="food-item-info">
+                        <h4>Berry Blast Smoothie</h4>
+                        <p>Rs7.99</p>
+                        <p class="item-available">Available</p>
+                    </div>
+                    <div class="food-item-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book items list for book shop (initially hidden) -->
+            <div class="food-items-list" id="book-items-list" style="display:none;">
+                <div class="food-item" data-id="201" data-category="textbook">
+                    <div class="food-item-info">
+                        <h4>Calculus Textbook</h4>
+                        <p>Rs59.99</p>
+                        <p class="item-available">Available</p>
+                    </div>
+                    <div class="food-item-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <div class="food-item" data-id="202" data-category="novel">
+                    <div class="food-item-info">
+                        <h4>The Great Gatsby</h4>
+                        <p>Rs12.99</p>
+                        <p class="item-available">Available</p>
+                    </div>
+                    <div class="food-item-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <div class="food-item" data-id="203" data-category="stationery">
+                    <div class="food-item-info">
+                        <h4>Notebook Pack (5)</h4>
+                        <p>Rs8.99</p>
+                        <p class="item-available">Available</p>
+                    </div>
+                    <div class="food-item-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <div class="food-item" data-id="204" data-category="accessory">
+                    <div class="food-item-info">
+                        <h4>University Pen Set</h4>
+                        <p>Rs15.99</p>
+                        <p class="item-unavailable">Unavailable</p>
+                    </div>
+                    <div class="food-item-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pre-orders Section -->
+        <section id="preorders" class="section-content preorder-section">
+            <h2>Pre-orders</h2>
+
+            <div class="preorders-header">
+                <div class="preorder-filter">
+                    <label for="date-filter">Filter by date:</label>
+                    <select id="date-filter">
+                        <option value="today">Today</option>
+                        <option value="yesterday">Yesterday</option>
+                        <option value="this-week">This Week</option>
+                        <option value="last-week">Last Week</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="preorder-tabs">
+                <button class="preorder-tab" data-target="#pending-preorders">Pending</button>
+                <button class="preorder-tab" data-target="#accepted-preorders">Accepted</button>
+                <button class="preorder-tab" data-target="#completed-preorders">Completed</button>
+                <button class="preorder-tab" data-target="#rejected-preorders">Rejected</button>
+            </div>
+
+            <div id="pending-preorders" class="preorder-content">
+                <div class="preorder-list">
+                    <!-- Sample Pending Preorders -->
+                    <div class="preorder-item" data-id="ORD-001">
+                        <div class="preorder-header">
+                            <span class="preorder-id">ORD-001</span>
+                            <span class="preorder-status status-pending">Pending</span>
+                        </div>
+                        <div class="preorder-info">
+                            <p>Customer: John Doe</p>
+                            <p>Time: 10:30 AM</p>
+                            <p>Items: 3</p>
+                            <p>Total: Rs35.97</p>
+                        </div>
+                    </div>
+                    <div class="preorder-item" data-id="ORD-002">
+                        <div class="preorder-header">
+                            <span class="preorder-id">ORD-002</span>
+                            <span class="preorder-status status-pending">Pending</span>
+                        </div>
+                        <div class="preorder-info">
+                            <p>Customer: Jane Smith</p>
+                            <p>Time: 11:45 AM</p>
+                            <p>Items: 2</p>
+                            <p>Total: Rs23.98</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="accepted-preorders" class="preorder-content">
+                <div class="preorder-list">
+                    <!-- Sample Accepted Preorders -->
+                    <div class="preorder-item" data-id="ORD-003">
+                        <div class="preorder-header">
+                            <span class="preorder-id">ORD-003</span>
+                            <span class="preorder-status status-accepted">Accepted</span>
+                        </div>
+                        <div class="preorder-info">
+                            <p>Customer: Mike Johnson</p>
+                            <p>Time: 12:15 PM</p>
+                            <p>Items: 4</p>
+                            <p>Total: Rs47.96</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="completed-preorders" class="preorder-content">
+                <div class="preorder-list">
+                    <!-- Sample Completed Preorders -->
+                    <div class="preorder-item" data-id="ORD-004">
+                        <div class="preorder-header">
+                            <span class="preorder-id">ORD-004</span>
+                            <span class="preorder-status status-completed">Completed</span>
+                        </div>
+                        <div class="preorder-info">
+                            <p>Customer: Sarah Wilson</p>
+                            <p>Time: Yesterday, 2:30 PM</p>
+                            <p>Items: 2</p>
+                            <p>Total: Rs29.98</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="rejected-preorders" class="preorder-content">
+                <div class="preorder-list">
+                    <!-- Sample Rejected Preorders -->
+                    <div class="preorder-item" data-id="ORD-005">
+                        <div class="preorder-header">
+                            <span class="preorder-id">ORD-005</span>
+                            <span class="preorder-status status-rejected">Rejected</span>
+                        </div>
+                        <div class="preorder-info">
+                            <p>Customer: Robert Brown</p>
+                            <p>Time: Yesterday, 4:45 PM</p>
+                            <p>Items: 1</p>
+                            <p>Total: Rs12.99</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Book Shop Message (shown when bookshop is selected) -->
+        <section id="bookshop-info" class="section-content" style="display:none;">
+            <div class="info-message">
+                <h3>Pre-orders not available for Book Shop</h3>
+                <p>Book Shop owners don't have access to the pre-ordering system.</p>
+                <p>Please manage your inventory through the Books & Accessories section.</p>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="section-content">
+            <h2>Settings</h2>
+            <p>This section is under development.</p>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <!-- Add Food Modal -->
+    <div id="add-food-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="add-modal-title">Add New Food Item</h3>
+            <form id="add-food-form">
+                <div class="form-group">
+                    <label for="add-food-name">Name:</label>
+                    <input type="text" id="add-food-name" name="food-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-food-price">Price (Rs):</label>
+                    <input type="number" id="add-food-price" name="food-price" step="0.01" min="0" required>
+                </div>
+                <div class="form-group" id="food-category-group">
+                    <label for="add-food-category">Category:</label>
+                    <select id="add-food-category" name="food-category" required>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="dessert">Dessert</option>
+                        <option value="beverage">Beverage</option>
+                    </select>
+                </div>
+                <div class="form-group" id="juice-category-group" style="display:none;">
+                    <label for="add-juice-category">Category:</label>
+                    <select id="add-juice-category" name="food-category" required>
+                        <option value="fruit">Fruit Juices</option>
+                        <option value="milk">Milk Shakes</option>
+                        <option value="smoothie">Smoothies</option>
+                        <option value="healthy">Healthy Drinks</option>
+                    </select>
+                </div>
+                <div class="form-group" id="book-category-group" style="display:none;">
+                    <label for="add-book-category">Category:</label>
+                    <select id="add-book-category" name="food-category" required>
+                        <option value="textbook">Textbooks</option>
+                        <option value="novel">Novels</option>
+                        <option value="stationery">Stationery</option>
+                        <option value="accessory">Accessories</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="add-food-available">Available:</label>
+                    <select id="add-food-available" name="food-available" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn cancel-btn">Cancel</button>
+                    <button type="submit" class="btn submit-btn">Add Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Food Modal -->
+    <div id="edit-food-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="edit-modal-title">Edit Food Item</h3>
+            <form id="edit-food-form">
+                <input type="hidden" name="food-id">
+                <div class="form-group">
+                    <label for="edit-food-name">Name:</label>
+                    <input type="text" id="edit-food-name" name="food-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-food-price">Price (Rs):</label>
+                    <input type="number" id="edit-food-price" name="food-price" step="0.01" min="0" required>
+                </div>
+                <div class="form-group" id="edit-food-category-group">
+                    <label for="edit-food-category">Category:</label>
+                    <select id="edit-food-category" name="food-category" required>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="dessert">Dessert</option>
+                        <option value="beverage">Beverage</option>
+                    </select>
+                </div>
+                <div class="form-group" id="edit-juice-category-group" style="display:none;">
+                    <label for="edit-juice-category">Category:</label>
+                    <select id="edit-juice-category" name="food-category" required>
+                        <option value="fruit">Fruit Juices</option>
+                        <option value="milk">Milk Shakes</option>
+                        <option value="smoothie">Smoothies</option>
+                        <option value="healthy">Healthy Drinks</option>
+                    </select>
+                </div>
+                <div class="form-group" id="edit-book-category-group" style="display:none;">
+                    <label for="edit-book-category">Category:</label>
+                    <select id="edit-book-category" name="food-category" required>
+                        <option value="textbook">Textbooks</option>
+                        <option value="novel">Novels</option>
+                        <option value="stationery">Stationery</option>
+                        <option value="accessory">Accessories</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-food-available">Available:</label>
+                    <select id="edit-food-available" name="food-available" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn cancel-btn">Cancel</button>
+                    <button type="submit" class="btn submit-btn">Update Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Food Modal -->
+    <div id="delete-food-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Delete Item</h3>
+            <form id="delete-food-form">
+                <input type="hidden" name="food-id">
+                <p class="confirm-delete-text">Are you sure you want to delete this item?</p>
+                <div class="form-actions">
+                    <button type="button" class="btn cancel-btn">Cancel</button>
+                    <button type="submit" class="btn delete-btn">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div id="order-details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Order Details</h3>
+            <div class="order-details">
+                <div class="order-details-section">
+                    <h4>Order Information</h4>
+                    <p>Order ID: <span class="order-id">ORD-001</span></p>
+                    <p>Status: <span class="order-status">Pending</span></p>
+                    <p>Date: May 11, 2023</p>
+                    <p>Time: 10:30 AM</p>
+                </div>
+                <div class="order-details-section">
+                    <h4>Customer Information</h4>
+                    <p>Name: John Doe</p>
+                    <p>Email: john@example.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+                <div class="order-details-section">
+                    <h4>Order Items</h4>
+                    <div class="order-items">
+                        <div class="order-item">
+                            <span>1 x Eggs Benedict</span>
+                            <span>Rs12.99</span>
+                        </div>
+                        <div class="order-item">
+                            <span>2 x Orange Juice</span>
+                            <span>Rs11.98</span>
+                        </div>
+                        <div class="order-item">
+                            <span>1 x Avocado Toast</span>
+                            <span>Rs10.99</span>
+                        </div>
+                    </div>
+                    <div class="order-total">
+                        Total: Rs35.96
+                    </div>
+                </div>
+            </div>
+            <form id="order-action-form">
+                <input type="hidden" name="order-id" value="ORD-001">
+                <div class="form-group">
+                    <label for="order-status">Update Status:</label>
+                    <select id="order-status" name="status">
+                        <option value="pending">Pending</option>
+                        <option value="accepted">Accepted</option>
+                        <option value="completed">Completed</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn cancel-btn">Close</button>
+                    <button type="submit" class="btn submit-btn">Update Status</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="index.js"></script>
+</body>
+
+</html>
