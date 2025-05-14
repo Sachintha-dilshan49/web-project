@@ -238,6 +238,31 @@ main{
     display: block;
 }
 
+#pre-order-tab-container{
+    position: relative;
+    display: inline-block;
+}
+
+/* #preOrderTabBtn{
+    background-color: #27ae60;
+} */
+
+.pre-order-items{
+    color: var(--secondary-color);
+    width: 1rem;
+    height: 1rem;
+    font-size: smaller;
+    background-color: var(--primary-color);
+    align-content: center;
+    border-radius: 50%;
+    position:absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .menu-category{
     display: flex;
     flex-direction: column;

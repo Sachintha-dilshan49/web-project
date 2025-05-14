@@ -89,6 +89,22 @@ document.getElementById('reviewSubmitBtn').addEventListener('click',(event)=>{
 
   const reviewText = document.getElementById('review-info').value;
   console.log('Review submitted:', reviewText);
-})
+});
+
+
+
+//Add to Order
+
+
+const addToOrderBtns = document.querySelectorAll('add-order-btn');
+addToOrderBtns.forEach(addToOrderBtn =>{
+  addToOrderBtn.addEventListener('click',()=>{
+    const itemName = addToOrderBtn.previousElementSibling.previousElementSibling.previousElementSibling;
+    
+  })
+}) 
+
+
+
 
 
