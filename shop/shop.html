@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UOMFacilities | ShopName </title>
+    <link rel="stylesheet" href="shopstyle.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>UoM<span>Facilities</span></h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Canteens</a></li>
+                    <li><a href="#">Juice Bars</a></li>
+                    <li><a href="#">Book Shops</a></li>
+                    <li><a href="#">Map</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons" id="authButtons">
+                <button class="login-btn" id="loginBtn">Login</button>
+                <button class="signup-btn" id="signupBtn">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="shop-header">
+            <button class="back-btn" id="backBtn">Back to Home</button>
+            <div class="shopTitle">
+                <span id="shopNameMain" class="shopNameMain">ShopName</span>  <span class="shopStatus status-open">open</span>
+            </div>
+            <div class="shop-info">
+                <div class="shop-info-item">
+                    <span>Hours:</span><span>7:00 AM - 8:00 PM</span>
+                </div>
+                <div class="shop-info-item location">
+                    <span>Location:</span><span>Near Main Gate</span>
+                </div>
+            </div>
+        </div>
+        <div class="shop-tabs">
+            <ul class="tabs-list">
+                <li><button class="tab-btn active" data-tab="menu" id="menuTabBtn">Menu</button></li>
+                <li><button class="tab-btn" data-tab="reviews" id="reviewTabBtn">Reviews</button></li>
+                <li><button class="tab-btn" data-tab="order" id="preOrderTabBtn">Pre-order <span id="preOrder">1</span> </button></li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane selected" id="menuTab">
+                <div class="menu-category">
+                    <div class="menu-category-name">Main Dishes</div>
+                    <div class="menu-items">                            
+                        <div class="menu-item">
+                            <span class="item-name">itemName</span>
+                            <span class="item-price">itemPrice</span>
+                            <span class="item-status available">Availablility</span>
+                            <button class="add-order-btn">Add to Order</button>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">itemName</span>
+                            <span class="item-price">itemPrice</span>
+                            <span class="item-status available">Availablility</span>
+                            <button class="add-order-btn">Add to Order</button>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">itemName</span>
+                            <span class="item-price">itemPrice</span>
+                            <span class="item-status available">Availablility</span>
+                            <button class="add-order-btn">Add to Order</button>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">itemName</span>
+                            <span class="item-price">itemPrice</span>
+                            <span class="item-status available">Availablility</span>
+                            <button class="add-order-btn">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-category">
+                    <div class="menu-category-name">Drinks</div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="item-name">itemName</span>
+                            <span class="item-price">itemPrice</span>
+                            <span class="item-status available">Availablility</span>
+                            <button class="add-order-btn">Add to Order</button>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">itemName</span>
+                            <span class="item-price">itemPrice</span>
+                            <span class="item-status available">Availablility</span>
+                            <button class="add-order-btn">Add to Order</button>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">itemName</span>
+                            <span class="item-price">itemPrice</span>
+                            <span class="item-status available">Availablility</span>
+                            <button class="add-order-btn">Add to Order</button>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+            
+            <div class="tab-pane" id="reviewsTab">
+                <button id="addReview">Add Review</button>
+                <div id="reviewsCont">
+                    <div class="review-item">
+                        <div class="review-header">
+                            <span class="reviewer-name">CutomerName</span>
+                            <span class="review-date">Date(March 20, 2025)</span>
+                        </div>
+                        <p class="the-review">review</p>
+                    </div>
+                    
+                    <div class="review-item">
+                        <div class="review-header">
+                            <span class="reviewer-name">CutomerName</span>
+                            <span class="review-date">Date(March 20, 2025)</span>
+                        </div>
+                        <p class="the-review">review</p>
+                    </div>
+                    
+                </div>
+                <div id="alertsCont">
+                    <div id="realTimeAlert">Real Time Alert</div>
+                    <div class="alert-list">
+                        <div class="alert-item">
+                            <span class="alert-info">Alert</span>
+                            <span class="alert-time">Reported time</span>
+                        </div>
+                        <div class="alert-item">
+                            <span class="alert-info">Alert</span>
+                            <span class="alert-time">Reported time</span>
+                        </div>
+                    </div>
+                    <div class="submit-alert-cont">
+                        <form action="POST" class="add-alert">
+                            <input type="text" placeholder="Report availability (e.g., 'Noodles gone')" id="alertInput">
+                            <button type="submit" id="alertSubmitBtn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="preOderTab">
+                <span class="pre-order-title">Your Pre-order</span>
+                <div class="ordered-item-list">
+                    <div class="ordered-item">
+                        <div class="ordered-item-name">item Name</div>
+                        <div class="ordered-item-details">
+                            <span class="ordered-item-price">itemPrice</span>
+                            <span class="ordered-item-quantity">
+                                <span class="order-quantity-changer minus">-</span>
+                                <input type="number" class="order-quantity">
+                                <span class="order-quantity-changer plus">+</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ordered-item">
+                        <div class="ordered-item-name">itemName</div>
+                        <div class="ordered-item-details">
+                            <span class="ordered-item-price">itemPrice</span>
+                            <span class="ordered-item-quantity">
+                                <span class="order-quantity-changer minus">-</span>
+                                <input type="number" class="order-quantity">
+                                <span class="order-quantity-changer plus">+</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="additional-notes">
+                    <p class="additional-notes-titile">Additional Notes</p>
+                    <form action="POST" class="additional-notes-form">
+                        <textarea id="additionalNotes" placeholder="e.g., No onions, please"></textarea>
+                        <button type="submit" id="preOrderSubmitBtn">Submit Pre-order</button>
+                    </form>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="addReviewWindowContainer" class="non-visible">
+        <div id="#addReviewWindow">
+            <form class="add-review">
+                <h3>Add your Review</h3>
+                <textarea name="addReview" id="review-info" placeholder="type your review about this shop"></textarea>
+                <div class="add-review-buttons">
+                    <button id="reviewCancelBtn" type="button" class="reviewWindowBtn">Cancel</button>
+                    <button type="submit" id="reviewSubmitBtn" class="reviewWindowBtn">Submit your Review</button>
+                    <!-- Stopped default submit buttno beacuse of unneccassary reloading,, so need to hanlde manually -->
+                </div>  
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <p class="footer-section-title">About</p>
+                <a href="" class="footer-section-name">About UoM Facilities</a>
+                <a href="" class="footer-section-name">Our Team</a>
+                <a href="" class="footer-section-name">How It Works</a>
+                <a href="" class="footer-section-name">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <p class="footer-section-title">Facilities</p>
+                <a href="" class="footer-section-name">All Canteens</a>
+                <a href="" class="footer-section-name">All Juice Bars</a>
+                <a href="" class="footer-section-name">All Book Shops</a>
+                <a href="" class="footer-section-name">Campus Map</a>
+            </div>
+            <div class="footer-section">
+                <p class="footer-section-title">For Facility Owners</p>
+                <a href="" class="footer-section-name">Update Your Info</a>
+                <a href="" class="footer-section-name">Manage Pre-orders</a>
+                <a href="" class="footer-section-name">Facility Dashboard</a>
+                <a href="" class="footer-section-name">Support</a>
+            </div>
+            <div class="footer-section">
+                <p class="footer-section-title">For Students</p>
+                <a href="" class="footer-section-name">Create Account</a>
+                <a href="" class="footer-section-name">Pre-order System</a>
+                <a href="" class="footer-section-name">Your Reviews</a>
+                <a href="" class="footer-section-name">Help</a>
+            </div>
+        </div>
+        <p class="footer-bottom">© 2025 University of Moratuwa. All Rights Reserved.</p>
+    </footer>
+    <script src="shopScript.js"></script>
+</body>
+</html>
