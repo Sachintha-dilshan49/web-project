@@ -490,6 +490,12 @@ main{
     color: var(--primary-color);
 }
 
+.ordered-item-quantity{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 0.2rem;
+}
+
 .order-quantity-changer{
     background-color: var(--light-gray);
     padding: 0.2rem 0.7rem;
