@@ -50,7 +50,27 @@ preOrderTabBtn.addEventListener("click", () => {
 
 
 //menu sorting
+function sortMenuItemsByCategory() {
+    const menuCategories = document.querySelectorAll('.menu-category');
+    menuCategories.forEach(category => {
+        const menuItemsContainer = category.querySelector('.menu-items');
+        const menuItems = Array.from(menuItemsContainer.querySelectorAll('.menu-item'));
+        const availableItems = menuItems.filter(item => 
+            item.querySelector('.item-status').classList.contains('available')
+        );
+        const unavailableItems = menuItems.filter(item => 
+            item.querySelector('.item-status').classList.contains('unavailable')
+        );
+        const sortedItems = [...availableItems, ...unavailableItems]; //copying and storing the elemets  
+        menuItemsContainer.innerHTML = '';
+        sortedItems.forEach(item => {
+            menuItemsContainer.appendChild(item);
+        });
+    });
+}
 
+// Call when needed
+sortMenuItemsByCategory();
 
 
 //functionality for review tab
@@ -207,4 +227,5 @@ addToOrderBtns.forEach((addToOrderBtn) => {
 // preOrderInputs.forEach(preOrderInput=>{
 //   preOrderInput.value=0;
 // })
+
 
