@@ -297,6 +297,17 @@ main{
     font-weight: 600;
 }
 
+.menu-item.finished{
+    background-color: var(--light-gray);
+}
+.menu-item.finished .item-name{
+    color: var(--dark-gray);
+}
+.menu-item.finished .item-price{
+    color: var(--dark-gray);
+}
+
+
 .item-price{
     color: var(--primary-color);
     font-weight: 600;
@@ -325,6 +336,17 @@ main{
     width: fit-content;
     border-radius: 0.3rem;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.inactive{
+    cursor: not-allowed;
+    background-color:#ff9f7f !important;
+}
+.inactive:hover{
+    background-color:#ff9f7f !important;
+}
+.inactive:active{
+    background-color:#ff9f7f !important;
 }
 
 .add-order-btn:hover{
