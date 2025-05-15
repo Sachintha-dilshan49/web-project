@@ -249,7 +249,9 @@ main{
 
 .pre-order-items{
     color: var(--secondary-color);
-    width: 1rem;
+    min-width: 0.2rem;
+    padding: 0.3rem;
+    width: max-content;
     height: 1rem;
     font-size: smaller;
     background-color: var(--primary-color);
@@ -257,7 +259,7 @@ main{
     border-radius: 50%;
     position:absolute;
     top: 10px;
-    right: 20px;
+    right: 23px;
     display: flex;
     justify-content: center;
     align-items: center;
