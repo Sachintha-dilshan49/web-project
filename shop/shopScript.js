@@ -135,6 +135,11 @@ function addPreOrdertoList(itemId, itemName, itemPrice) {
   const orderQuantityMinus = document.createElement("span");
   orderQuantityMinus.className = "order-quantity-changer minus";
   orderQuantityMinus.textContent = "-";
+  orderQuantityMinus.addEventListener('click',()=>{
+    if(inputNum.value>0){
+      inputNum.value--;
+    }
+  })
 
   const inputNum = document.createElement("input");
   inputNum.className = "order-quantity";
@@ -144,6 +149,9 @@ function addPreOrdertoList(itemId, itemName, itemPrice) {
   const orderQuantityPlus = document.createElement("span");
   orderQuantityPlus.className = "order-quantity-changer plus";
   orderQuantityPlus.textContent = "+";
+  orderQuantityPlus.addEventListener('click',()=>{
+    inputNum.value++;
+  })
 
   orderItemQuantity.appendChild(orderQuantityMinus);
   orderItemQuantity.appendChild(inputNum);
@@ -179,7 +187,9 @@ addToOrderBtns.forEach((addToOrderBtn) => {
         console.log(preOrderItemsNo.textContent);
         preOrderItemNumShow();
 
-        refreshNeeds();
+        addToOrderBtn.textContent = 'Added to List';
+
+        // refreshNeeds();
         addToOrderBtn.classList.add("inactive");
       }
     });
@@ -194,34 +204,4 @@ addToOrderBtns.forEach((addToOrderBtn) => {
 // preOrderInputs.forEach(preOrderInput=>{
 //   preOrderInput.value=0;
 // })
-OrderPlusBtns =
-  document.querySelectorAll(".order-quantity-changer") &&
-  document.querySelectorAll(".plus");
-OrderMinusBtns =
-  document.querySelectorAll(".order-quantity-changer") &&
-  document.querySelectorAll(".minus");
 
-function refreshNeeds() {
-  let OrderPlusBtns =
-    document.querySelectorAll(".order-quantity-changer") &&
-    document.querySelectorAll(".plus");
-  let OrderMinusBtns =
-    document.querySelectorAll(".order-quantity-changer") &&
-    document.querySelectorAll(".minus");
-
-  OrderPlusBtns.forEach((OrderPlusBtn) => {
-    OrderPlusBtn.addEventListener("click", () => {
-      const orderQuantity = OrderPlusBtn.previousElementSibling;
-      orderQuantity.value++;
-    });
-  });
-
-  OrderMinusBtns.forEach((OrderMinusBtn) => {
-    OrderMinusBtn.addEventListener("click", () => {
-      const orderQuantity = OrderMinusBtn.nextElementSibling;
-      if (orderQuantity.value > 0) {
-        orderQuantity.value--;
-      }
-    });
-  });
-}
