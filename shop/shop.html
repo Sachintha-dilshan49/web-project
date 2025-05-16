@@ -48,7 +48,7 @@
             <ul class="tabs-list">
                 <li><button class="tab-btn active" data-tab="menu" id="menuTabBtn">Menu</button></li>
                 <li><button class="tab-btn" data-tab="reviews" id="reviewTabBtn">Reviews</button></li>
-                <li><button class="tab-btn" data-tab="order" id="preOrderTabBtn">Pre-order <span id="preOrder">1</span> </button></li>
+                <li id="pre-order-tab-container"><button class="tab-btn" data-tab="order" id="preOrderTabBtn">Pre-order</button> <span id="preOrderItems" class="pre-order-items non-visible" >0</span> </li>
             </ul>
         </div>
         <div class="tab-content">
@@ -56,25 +56,25 @@
                 <div class="menu-category">
                     <div class="menu-category-name">Main Dishes</div>
                     <div class="menu-items">                            
-                        <div class="menu-item">
-                            <span class="item-name">itemName</span>
-                            <span class="item-price">itemPrice</span>
+                        <div class="menu-item" id="FD001">
+                            <span class="item-name">Kabilithi one</span>
+                            <span class="item-price">chikibili 1</span>
                             <span class="item-status available">Availablility</span>
                             <button class="add-order-btn">Add to Order</button>
                         </div>
                         <div class="menu-item">
-                            <span class="item-name">itemName</span>
+                            <span class="item-name">itemName2</span>
                             <span class="item-price">itemPrice</span>
                             <span class="item-status available">Availablility</span>
                             <button class="add-order-btn">Add to Order</button>
                         </div>
-                        <div class="menu-item">
+                        <div class="menu-item finished">
                             <span class="item-name">itemName</span>
                             <span class="item-price">itemPrice</span>
-                            <span class="item-status available">Availablility</span>
+                            <span class="item-status unavailable">Availablility</span>
                             <button class="add-order-btn">Add to Order</button>
                         </div>
-                        <div class="menu-item">
+                        <div class="menu-item" id="fd">
                             <span class="item-name">itemName</span>
                             <span class="item-price">itemPrice</span>
                             <span class="item-status available">Availablility</span>
@@ -86,7 +86,7 @@
                     <div class="menu-category-name">Drinks</div>
                     <div class="menu-items">
                         <div class="menu-item">
-                            <span class="item-name">itemName</span>
+                            <span class="item-name">itemNamebima</span>
                             <span class="item-price">itemPrice</span>
                             <span class="item-status available">Availablility</span>
                             <button class="add-order-btn">Add to Order</button>
@@ -150,29 +150,7 @@
 
             <div class="tab-pane" id="preOderTab">
                 <span class="pre-order-title">Your Pre-order</span>
-                <div class="ordered-item-list">
-                    <div class="ordered-item">
-                        <div class="ordered-item-name">item Name</div>
-                        <div class="ordered-item-details">
-                            <span class="ordered-item-price">itemPrice</span>
-                            <span class="ordered-item-quantity">
-                                <span class="order-quantity-changer minus">-</span>
-                                <input type="number" class="order-quantity">
-                                <span class="order-quantity-changer plus">+</span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="ordered-item">
-                        <div class="ordered-item-name">itemName</div>
-                        <div class="ordered-item-details">
-                            <span class="ordered-item-price">itemPrice</span>
-                            <span class="ordered-item-quantity">
-                                <span class="order-quantity-changer minus">-</span>
-                                <input type="number" class="order-quantity">
-                                <span class="order-quantity-changer plus">+</span>
-                            </span>
-                        </div>
-                    </div>
+                <div class="ordered-item-list" id="orderItemList">
                 </div>
                 <div class="additional-notes">
                     <p class="additional-notes-titile">Additional Notes</p>
