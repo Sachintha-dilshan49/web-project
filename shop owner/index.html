@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewponit" content="width=device-width, intial-scale=1.0">
+    <title>shop owners</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="head-container">
+                <h2> UoM<span id="facilities">Facilities</span> - <span>Shop owners</span></h2>
+            </div>
+            <div class="nav-container">
+                <nav>
+                    <ul class="nav-links" id="nav-links">
+                        <li><a href="#" onclick="showSection('dashboard'); return false;">dashboard</a></li>
+                        <li><a href="#" onclick="showSection('products'); return false;">products</a></li>
+                        <li><a href="#" onclick="showSection('perorders'); return false;">pre orders</a></li>
+                        <li><a href="#" onclick="showSection('reviews'); return false;">Reviews</a></li>
+                        <li><a href="#" onclick="showSection('settings'); return false;">settings</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">LW</div>
+                <span>Wasantha</span>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+        </div>
+    </header>
+
+    <main>
+        <section id="dashboard" class="section-content">
+            <div class="dashboard-h2">
+                <h2>Hello! Wasantha</h2>
+            </div>
+            <div class="owner-details">
+                <h2>L canteen</h2>
+                <div class="box-inside">
+                    <div id="canteen-img"><img src="L canteen.jpg"></div>
+                    <div class="owner">
+                        <p id="name">Shop owner: wasantha</p>
+                        <p id="location">Location: buisness building</p>
+                        <p id="hours">Time: 7.00AM - 6.00PM</p>
+                    </div>
+                    <div class="owner-btns">
+                        <div class="shop-status-style">
+                            <div id="shop-status">
+                                <span>Status:</span><span id="status-text"> Closed</span>
+                                <div class="checkbox-wrapper-14">
+                                    <input id="s1-14" type="checkbox" class="switch">
+                                    <label for="s1-14"></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="crowded-status-selector">
+                            <label for="crowded-status">Crowded Status:</label>
+                            <select id="crowded-status">
+                                <option value="crowded">Crowded (more than 15 people)</option>
+                                <option value="pcrowded">Partially Crowded</option>
+                                <option value="ncrowded">Not Crowded(less than 5 people)</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>Available items</h3>
+                    <div class="number" id="total-orders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>pending orders</h3>
+                    <div class="number" id="pending-orders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>completed orders</h3>
+                    <div class="number" id="completed-orders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>total revenue</h3>
+                    <div class="number" id="total-revenue">Rs.0</div>
+                </div>
+            </div>
+            <div class="notifications">
+                <h2>Notifications..</h2>
+                <div class="notifi-alert">
+                    <span>you have alert !</span>
+                    <div class="notifi-btns">
+                        <button id="preview-notifi">preview</button>
+                        <button id="delete-notifi">delete</button>
+                    </div>
+                </div>
+                <div class="notifi-alert">
+                    <span>you have alert !</span>
+                    <div class="notifi-btns">
+                        <button id="preview-notifi">preview</button>
+                        <button id="delete-notifi">delete</button>
+                    </div>
+                </div>
+                <div class="notifi-alert">
+                    <span>you have alert!</span>
+                    <div class="notifi-btns">
+                        <button id="preview-notifi">preview</button>
+                        <button id="delete-notifi">delete</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="products" class="section-content">
+            <div class="products-h1">
+                <h1>products</h1>
+            </div>
+            <div class="canteen-products">
+                <div>
+                    <h2>canteen products</h2>
+                </div>
+                <div class="add-btn">
+                    <button id="add-btn">Add new items</button>
+                </div>
+                <div class="food-items-list" id="food-items-list">
+                    <!-- Sample Food Items -->
+                    <div class="food-item" data-id="1" data-category="breakfast">
+                        <div class="food-item-info">
+                            <h4>Egg bun</h4>
+                            <p>LKR 90.000</p>
+                            <div class="item-status">
+                                <span class="status-text-item"></span>
+                                <div class="checkbox-wrapper-14">
+                                    <input id="s1-14" type="checkbox" class="item-switch switch">
+                                    <label for="s1-14"></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="food-item-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="food-item" data-id="2" data-category="lunch">
+                        <div class="food-item-info">
+                            <h4>Rolls</h4>
+                            <p>LKR 70.00</p>
+                            <div class="item-status">
+                                <span class="status-text-item"></span>
+                                <div class="checkbox-wrapper-14">
+                                    <input id="s1-14" type="checkbox" class="item-switch switch">
+                                    <label for="s1-14"></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="food-item-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="food-item" data-id="3" data-category="dinner">
+                        <div class="food-item-info">
+                            <h4>fish bun</h4>
+                            <p>LKR 50.00</p>
+                            <div class="item-status">
+                                <span class="status-text-item"></span>
+                                <div class="checkbox-wrapper-14">
+                                    <input id="s1-14" type="checkbox" class="item-switch switch">
+                                    <label for="s1-14"></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="food-item-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="canteen-products">
+                <div>
+                    <h2>juice bar products</h2>
+                </div>
+                <div class="add-btn">
+                    <button id="add-juice-btn">Add new items</button>
+                </div>
+                <div class="food-items-list" id="juicebar-items-list">
+                    <!-- Sample Food Items -->
+                    <div class="food-item" data-id="1">
+                        <div class="food-item-info">
+                            <h4>chocolate milk shake</h4>
+                            <p>LKR 340.000</p>
+                            <div class="item-status">
+                                <span class="status-text-item"></span>
+                                <div class="checkbox-wrapper-14">
+                                    <input id="s1-14" type="checkbox" class="item-switch switch">
+                                    <label for="s1-14"></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="food-item-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="food-item" data-id="2">
+                        <div class="food-item-info">
+                            <h4>watermellon </h4>
+                            <p>LKR 120.00</p>
+                            <div class="item-status">
+                                <span class="status-text-item"></span>
+                                <div class="checkbox-wrapper-14">
+                                    <input id="s1-14" type="checkbox" class="item-switch switch">
+                                    <label for="s1-14"></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="food-item-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="food-item" data-id="3">
+                        <div class="food-item-info">
+                            <h4>banana boat</h4>
+                            <p>LKR 350.00</p>
+                            <div class="item-status">
+                                <span class="status-text-item"></span>
+                                <div class="checkbox-wrapper-14">
+                                    <input id="s1-14" type="checkbox" class="item-switch switch">
+                                    <label for="s1-14"></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="food-item-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="canteen-products">
+                <div>
+                    <h2>bookshop accessories</h2>
+                </div>
+                <div class="add-btn">
+                    <button id="add-bookshop-btn">Add new items</button>
+                </div>
+                <div class="food-items-list" id="bookshop-items-list">
+                    <!-- Sample Food Items -->
+                    <div class="food-item" data-id="1" >
+                        <div class="food-item-info">
+                            <h4>A4 sheet</h4>
+                            <p>LKR 10.000</p>
+                            <div class="item-status">
+                                <span class="status-text-item"></span>
+                                <div class="checkbox-wrapper-14">
+                                    <input id="s1-14" type="checkbox" class="item-switch switch">
+                                    <label for="s1-14"></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="food-item-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="food-item" data-id="2">
+                        <div class="food-item-info">
+                            <h4>pen</h4>
+                            <p>LKR 30.00</p>
+                            <div class="item-status">
+                                <span class="status-text-item"></span>
+                                <div class="checkbox-wrapper-14">
+                                    <input id="s1-14" type="checkbox" class="item-switch switch">
+                                    <label for="s1-14"></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="food-item-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="food-item" data-id="3" >
+                        <div class="food-item-info">
+                            <h4>eraser</h4>
+                            <p>LKR 30.00</p>
+                            <div class="item-status">
+                                <span class="status-text-item"></span>
+                                <div class="checkbox-wrapper-14">
+                                    <input id="s1-14" type="checkbox" class="item-switch switch">
+                                    <label for="s1-14"></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="food-item-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+    </main>
+    <div id="additemWindowContainer" class="non-visible">
+        <div id="additemWindow">
+            <form class="add-item-form">
+                <h3>Add new item</h3>
+                <div class="form-group">
+                    <label for="add-food-name">Name:</label>
+                    <input type="text" id="add-food-name" name="food-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-food-price">Price (Rs):</label>
+                    <input type="number" id="add-food-price" name="food-price" step="0.01" min="0" required>
+                </div>
+                <div class="form-group" id="food-category-group">
+                    <label for="add-food-category">Category:</label>
+                    <select id="add-food-category" name="food-category" required>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="dessert">Dessert</option>
+                        <option value="beverage">Beverage</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="item-cancel-btn" class="fitem-btn">Cancel</button>
+                    <button type="submit" id="item-submit-btn" class="fitem-btn">Add Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Fixed HTML structure for the juice item modal -->
+    <div id="addjuiceitemWindowContainer" class="non-visible">
+        <div id="addjuiceitemWindow" class="add-item-window">
+            <form class="add-item-form" id="juice-item-form">
+                <h3>Add New Juice Item</h3>
+                <div class="form-group">
+                    <label for="juice-item-name">Name:</label>
+                    <input type="text" id="juice-item-name" name="juice-item-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="juice-item-price">Price (Rs):</label>
+                    <input type="number" id="juice-item-price" name="juice-item-price" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="juice-item-category">Category:</label>
+                    <select id="juice-item-category" name="juice-item-category" required>
+                        <option value="fruit-juice">Fruit Juice</option>
+                        <option value="milk-shake">Milk Shake</option>
+                        <option value="salad">Fruit Salad</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="juice-cancel-btn" class="fitem-btn">Cancel</button>
+                    <button type="submit" id="juice-submit-btn" class="fitem-btn">Add Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+<!-- Fixed HTML structure for the bookshop item modal -->
+    <div id="additembookshopWindowContainer" class="non-visible">
+        <div id="additembookshopWindow">
+            <form class="add-item-form" id="bookshop-item-form">
+                <h3>Add new item</h3>
+                <div class="form-group">
+                    <label for="add-food-name">Name:</label>
+                    <input type="text" id="add-bookshop-name" name="food-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-food-price">Price (Rs):</label>
+                    <input type="number" id="add-bookshop-price" name="food-price" step="0.01" min="0" required>
+                </div>
+               
+                <div class="form-actions">
+                    <button type="button" id="bookshop-cancel-btn" class="fitem-btn">Cancel</button>
+                    <button type="submit" id="bookshop-submit-btn" class="fitem-btn">Add Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
