@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   initAddJuiceItemFunctionality();
 
-  initAddBookshopItemFunctionality(); 
+  initAddBookshopItemFunctionality();
 });
 
 // Dashboard stats update
@@ -408,7 +408,7 @@ function initAddBookshopItemFunctionality() {
     const newBookshopItem = document.createElement("div");
     newBookshopItem.className = "food-item";
     newBookshopItem.dataset.id = id;
-  
+
 
     // Create HTML structure for the bookshop item
     newBookshopItem.innerHTML = `
@@ -462,3 +462,110 @@ function initAddBookshopItemFunctionality() {
     });
   }
 }
+
+//pre order buttons
+document.addEventListener('DOMContentLoaded', function () {
+
+  const newOrderBtn = document.getElementById('new-order');
+  const pendingOrderBtn = document.getElementById('pending-order');
+  const completedOrderBtn = document.getElementById('completed-order');
+
+  const newOrderSection = document.getElementById('new-order-content');
+  const pendingOrderSection = document.getElementById('pending-order-content');
+  const completedOrderSection = document.getElementById('completed-order-content');
+
+  function showSection(sectionToShow) {
+    // Hide all sections
+    [newOrderSection, pendingOrderSection, completedOrderSection].forEach(section => {
+      if (section) {
+        section.style.display = 'none';
+      }
+    });
+
+    // Show the selected section
+    if (sectionToShow) {
+      sectionToShow.style.display = 'block';
+    }
+  }
+
+  newOrderBtn.addEventListener('click', () => {
+    showSection(newOrderSection);
+    newOrderBtn.classList.add('active');
+    pendingOrderBtn.classList.remove('active');
+    completedOrderBtn.classList.remove('active');
+  });
+
+  pendingOrderBtn.addEventListener('click', () => {
+    showSection(pendingOrderSection);
+    newOrderBtn.classList.remove('active');
+    pendingOrderBtn.classList.add('active');
+    completedOrderBtn.classList.remove('active');
+  });
+
+  completedOrderBtn.addEventListener('click', () => {
+    showSection(completedOrderSection);
+    newOrderBtn.classList.remove('active');
+    pendingOrderBtn.classList.remove('active');
+    completedOrderBtn.classList.add('active');
+  });
+
+  showSection(newOrderSection);
+  newOrderBtn.classList.add('active');
+
+});
+
+//create delete poop for new order deletion
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  const popUpOverlay = document.createElement('div');
+  popUpOverlay.className = 'popup-overlay';
+
+  const popUpBox = document.createElement('div');
+  popUpBox.className = 'popup-box';
+
+  const popUpMessage = document.createElement('p');
+  popUpMessage.textContent = 'Are you sure. you waant to reject this order?';
+
+  const popUpButtonContainer = document.createElement('div');
+  popUpButtonContainer.style.display = 'flex';
+  popUpButtonContainer.style.justifyContent = 'space-around';
+
+  const confirmBtn = document.createElement('button');
+  confirmBtn.textContent = 'yes';
+  confirmBtn.className = 'confirm-btn';
+
+  const cancelBtn = document.createElement('button');
+  cancelBtn.textContent = 'No';
+  cancelBtn.className = 'cancel-btn'
+
+  popUpBox.appendChild(popUpMessage);
+  popUpButtonContainer.appendChild(confirmBtn);
+  popUpButtonContainer.appendChild(cancelBtn);
+  popUpBox.appendChild(popUpButtonContainer);
+  popUpOverlay.appendChild(popUpBox);
+  document.body.appendChild(popUpOverlay);
+
+  function showPopup(orderBox, onConfirm) {
+    popUpOverlay.style.display = 'flex';
+    confirmBtn.onclick = () => {
+      onConfirm();
+      popUpOverlay.style.display = 'none';
+    };
+    cancelBtn.onclick = () => {
+      popUpOverlay.style.display = 'none';
+    };
+  }
+
+  document.querySelectorAll('.new-order-delete-btn').forEach
+    (button => {
+      button.addEventListener('click', () => {
+        const orderBox = button.closest('.order-detail-box');
+        showPopup(orderBox, () => {
+          orderBox.remove();
+        });
+      });
+    });
+
+
+});
