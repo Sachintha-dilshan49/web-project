@@ -19,7 +19,7 @@
                     <ul class="nav-links" id="nav-links">
                         <li><a href="#" onclick="showSection('dashboard'); return false;">dashboard</a></li>
                         <li><a href="#" onclick="showSection('products'); return false;">products</a></li>
-                        <li><a href="#" onclick="showSection('perorders'); return false;">pre orders</a></li>
+                        <li><a href="#" onclick="showSection('pre-orders'); return false;">pre orders</a></li>
                         <li><a href="#" onclick="showSection('reviews'); return false;">Reviews</a></li>
                         <li><a href="#" onclick="showSection('settings'); return false;">settings</a></li>
                     </ul>
@@ -267,7 +267,7 @@
                 </div>
                 <div class="food-items-list" id="bookshop-items-list">
                     <!-- Sample Food Items -->
-                    <div class="food-item" data-id="1" >
+                    <div class="food-item" data-id="1">
                         <div class="food-item-info">
                             <h4>A4 sheet</h4>
                             <p>LKR 10.000</p>
@@ -305,7 +305,7 @@
                         </div>
                     </div>
 
-                    <div class="food-item" data-id="3" >
+                    <div class="food-item" data-id="3">
                         <div class="food-item-info">
                             <h4>eraser</h4>
                             <p>LKR 30.00</p>
@@ -326,6 +326,78 @@
                 </div>
             </div>
 
+
+        </section>
+
+        <section id="pre-orders" class="section-content">
+            <div>
+                <h2>Pre orders</h2>
+            </div>
+            <div class="order-button-container">
+                <button class="order-buttons" id="new-order">New orders</button>
+                <button class="order-buttons" id="pending-order">pending orders</button>
+                <button class="order-buttons" id="completed-order">Completed orders</button>
+            </div>
+
+            <div class="order-section" id="order-section-content">
+                <section id="new-order-content">
+                    <div>
+                        <h2>New order</h2>
+                    </div>
+                    <div class="order-box-container">
+                        <div class="order-detail-box">
+                            <div class="order-name">Saduni</div>
+                            <div class="order-index">234145K</div>
+                            <div>
+                                <diV class="order-items-type">Egg bun</diV>
+                                <div class="order-item-qauntity">2</div>
+                            </div>
+                            <div>
+                                <div class="order-total">prize:</div>
+                                <div class="order-total-number">LKR 100.00</div>
+                            </div>
+                            <div>
+                                <button id="order-accept-btn">Accept</button>
+                                <button id="order-delete-btn">Reject</button>
+                            </div>
+                        </div>
+                         <div class="order-detail-box">
+                            <div class="order-name">Saduni</div>
+                            <div class="order-index">234145K</div>
+                            <div>
+                                <diV class="order-items-type">Egg bun</diV>
+                                <div class="order-item-qauntity">2</div>
+                            </div>
+                            <div>
+                                <div class="order-total">prize:</div>
+                                <div class="order-total-number">LKR 100.00</div>
+                            </div>
+                            <div>
+                                <button id="order-accept-btn">Accept</button>
+                                <button id="order-delete-btn">Reject</button>
+                            </div>
+                        </div>
+                         <div class="order-detail-box">
+                            <div class="order-name">Saduni</div>
+                            <div class="order-index">234145K</div>
+                            <div>
+                                <diV class="order-items-type">Egg bun</diV>
+                                <div class="order-item-qauntity">2</div>
+                            </div>
+                            <div>
+                                <div class="order-total">prize:</div>
+                                <div class="order-total-number">LKR 100.00</div>
+                            </div>
+                            <div>
+                                <button id="order-accept-btn">Accept</button>
+                                <button id="order-delete-btn">Reject</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
 
         </section>
 
@@ -388,7 +460,7 @@
             </form>
         </div>
     </div>
-<!-- Fixed HTML structure for the bookshop item modal -->
+    <!-- Fixed HTML structure for the bookshop item modal -->
     <div id="additembookshopWindowContainer" class="non-visible">
         <div id="additembookshopWindow">
             <form class="add-item-form" id="bookshop-item-form">
@@ -401,7 +473,7 @@
                     <label for="add-food-price">Price (Rs):</label>
                     <input type="number" id="add-bookshop-price" name="food-price" step="0.01" min="0" required>
                 </div>
-               
+
                 <div class="form-actions">
                     <button type="button" id="bookshop-cancel-btn" class="fitem-btn">Cancel</button>
                     <button type="submit" id="bookshop-submit-btn" class="fitem-btn">Add Item</button>
@@ -409,6 +481,8 @@
             </form>
         </div>
     </div>
+
+
 
 
     <script src="script.js"></script>

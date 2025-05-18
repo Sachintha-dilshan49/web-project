@@ -330,20 +330,23 @@ main {
     color: var(--secondary-color);
     border: 1px solid var(--danger);
 }
-.products-h1{
-     margin-bottom: 30px;
+
+.products-h1 {
+    margin-bottom: 30px;
     color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 20px;
     justify-content: first baseline;
 }
+
 .canteen-products h2 {
     margin-top: 20px;
     margin-bottom: 30px;
 }
-#add-btn{
+
+#add-btn {
     background-color: transparent;
-    width:120px;
+    width:fit-content;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     border-radius: 3px;
@@ -351,19 +354,22 @@ main {
     text-align: center;
     padding: 5px;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+
 #add-btn:hover {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     border: 1px solid var(--primary-color);
 }
+
 .food-items-list {
     margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 15px;
 }
+
 .food-item {
     border: 1px solid #e0e0e0;
     border-radius: 5px;
@@ -372,6 +378,7 @@ main {
     justify-content: space-between;
     align-items: center;
 }
+
 .food-item-actions {
     display: flex;
     gap: 10px;
@@ -388,6 +395,7 @@ main {
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+
 .edit-btn:hover {
     background-color: var(--primary-color);
     color: var(--secondary-color);
@@ -405,12 +413,14 @@ main {
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+
 .delete-btn:hover {
     background-color: var(--danger);
     color: var(--secondary-color);
     border: 1px solid var(--danger);
 }
-.add-item-form{
+
+.add-item-form {
     width: fit-content;
     display: flex;
     flex-direction: column;
@@ -418,15 +428,15 @@ main {
     padding: 2rem;
     border-radius: 8px;
     max-width: 900px;
-    height:fit-content;
+    height: fit-content;
     max-height: 700px;
     overflow-y: auto;
-    position:relative;
+    position: relative;
     box-shadow: 0px 1px 9px rgba(0, 0, 0, 0.3);
 }
 
 
-.add-item-form h3{
+.add-item-form h3 {
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
@@ -473,25 +483,28 @@ main {
     background-color: var(--primary-color);
     color: var(--secondary-color);
 }
-.non-visible{
-    display:none;
+
+.non-visible {
+    display: none;
 }
-.visible{
+
+.visible {
     display: grid;
 }
-#additemWindowContainer{
+
+#additemWindowContainer {
     width: 100%;
-    background-color:rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     position: fixed;
     top: 0;
     bottom: 0;
-     justify-content: center;
-    align-items: center;   
+    justify-content: center;
+    align-items: center;
 }
 
-#add-juice-btn{
+#add-juice-btn {
     background-color: transparent;
-    width:120px;
+    width: fit-content;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     border-radius: 3px;
@@ -499,30 +512,32 @@ main {
     text-align: center;
     padding: 5px;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+
 #add-juice-btn:hover {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     border: 1px solid var(--primary-color);
 }
+
 #addjuiceitemWindowContainer {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
 #addjuiceitemWindowContainer.visible {
-  display: grid;
+    display: grid;
 }
 
 #addjuiceitemWindowContainer.non-visible {
-  display: none;
+    display: none;
 }
 
 #juice-cancel-btn {
@@ -537,109 +552,109 @@ main {
 
 .add-item-form input,
 .add-item-form select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
 }
 
 /* Fix label display for both modals */
 .add-item-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 /* Ensure consistent button styling in both modals */
 .add-item-form .fitem-btn {
-  padding: 8px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 /* Fix any z-index issues to ensure proper modal display */
 #additemWindowContainer,
 #addjuiceitemWindowContainer {
-  z-index: 1000;
+    z-index: 1000;
 }
 
 checkbox-wrapper-14 {
-  display: inline-block;
-  position: relative;
+    display: inline-block;
+    position: relative;
 }
 
 .checkbox-wrapper-14 .switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-  cursor: pointer;
-  background: #ddd;
-  border-radius: 20px;
-  transition: all 0.3s;
-  margin: 0 8px;
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+    background: #ddd;
+    border-radius: 20px;
+    transition: all 0.3s;
+    margin: 0 8px;
 }
 
 .checkbox-wrapper-14 .switch::after {
-  content: '';
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 18px;
-  background-color: white;
-  top: 1px;
-  left: 1px;
-  transition: all 0.3s;
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    background-color: white;
+    top: 1px;
+    left: 1px;
+    transition: all 0.3s;
 }
 
 .checkbox-wrapper-14 input[type="checkbox"] {
-  display: none;
+    display: none;
 }
 
-.checkbox-wrapper-14 input[type="checkbox"]:checked + .switch::after {
-  transform: translateX(20px);
+.checkbox-wrapper-14 input[type="checkbox"]:checked+.switch::after {
+    transform: translateX(20px);
 }
 
-.checkbox-wrapper-14 input[type="checkbox"]:checked + .switch {
-  background-color: #4cd964;
+.checkbox-wrapper-14 input[type="checkbox"]:checked+.switch {
+    background-color: #4cd964;
 }
 
 .item-status {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
 }
 
 .status-text-item {
-  font-size: 14px;
-  font-weight: bold;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /* Make sure food item info displays properly */
 .food-item-info {
-  flex: 1;
+    flex: 1;
 }
 
 .food-item-info h4 {
-  margin: 0 0 5px 0;
+    margin: 0 0 5px 0;
 }
 
 .food-item-info p {
-  margin: 0 0 10px 0;
-  color: #666;
+    margin: 0 0 10px 0;
+    color: var(--light-gray);
 }
 
 /* Modal fix to ensure proper display */
 #additemWindowContainer {
-  z-index: 1000;
+    z-index: 1000;
 }
 
-#add-bookshop-btn{
+#add-bookshop-btn {
     background-color: transparent;
-    width:120px;
+    width: fit-content;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     border-radius: 3px;
@@ -647,34 +662,37 @@ checkbox-wrapper-14 {
     text-align: center;
     padding: 5px;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+
 #add-bookshop-btn:hover {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     border: 1px solid var(--primary-color);
 }
+
 #additembookshopWindowContainer {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
 #additembookshopWindowContainer.visible {
-  display: grid;
+    display: grid;
 }
 
 #additembookshopWindowContainer.non-visible {
-  display: none;
+    display: none;
 }
+
 #bookshop-cancel-btn {
-    background-color: #ecf0f1;
-    color: #7f8c8d;
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
 }
 
 #bookshop-submit-btn {
@@ -682,7 +700,157 @@ checkbox-wrapper-14 {
     color: var(--secondary-color);
 }
 
+#pre-orders h2 {
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 20px;
+    justify-content: first baseline;
+}
 
+.order-button-container {
+    display: flex;
+    width: 45%;
+    justify-content: space-between;
+}
+
+.order-buttons {
+    background-color: transparent;
+    width: fit-content;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 3px;
+    font-size: 16px;
+    text-align: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.order-buttons:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+}
+
+#completed-order {
+    width: fit-content;
+}
+
+#new-order-content {
+    padding-top: 30px;
+}
+.order-box-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.order-detail-box {
+    border: 1px solid var(--secondary-color);
+    margin: 0 0 10px 0;
+    color: #666;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fcfcfc;
+    
+}
+
+.order-name {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.order-index {
+    font-size: 14px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.order-items-type,
+.order-item-qauntity {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.order-items-type {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.order-item-qauntity {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.order-total,
+.order-total-number {
+    color: var(--primary-color);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.order-total {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.order-total-number {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#order-accept-btn {
+    background-color: transparent;
+    width: fit-content;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 3px;
+    font-size: 16px;
+    text-align: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+#order-accept-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+}
+
+#order-delete-btn {
+    background-color: transparent;
+    width: fit-content;
+    border: 1px solid var(--danger);
+    color: var(--danger);
+    border-radius: 3px;
+    font-size: 16px;
+    text-align: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+#order-delete-btn:hover {
+    background-color: var(--danger);
+    color: var(--secondary-color);
+    border: 1px solid var(--danger);
+}
 
 
 
@@ -713,65 +881,65 @@ checkbox-wrapper-14 {
 
 
 @media (max-width:768px) {
-  .box-inside {
-    flex-wrap: wrap;
-  }
-  
-  #canteen-img {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  /* .owner {
+    .box-inside {
+        flex-wrap: wrap;
+    }
+
+    #canteen-img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* .owner {
     width: 100%;
     padding-left: 0;
   } */
-  /* .box-inside{
+    /* .box-inside{
      
     grid-template-columns: 1fr;
   } */
-  /* .owner-btns { 
+    /* .owner-btns { 
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items:center;
   } */
-  
-  .dashboard-stats {
-    grid-template-columns: 1fr;
-  }
-  
-  .food-items-list {
-    grid-template-columns: 1fr;
-  }
-  
-  .mobile-menu-btn {
-    display: block;
-  }
-  
-  .nav-container {
-    display: none;
-  }
-  
-  .nav-container.active {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .nav-links li {
-    width: 100%;
-  }
-  
-  .nav-links li a {
-    width: 100%;
-    text-align: left;
-  }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .food-items-list {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-container {
+        display: none;
+    }
+
+    .nav-container.active {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        width: 100%;
+        text-align: left;
+    }
 }
 
 
