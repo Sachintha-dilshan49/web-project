@@ -856,8 +856,11 @@ button {
 
 #pending-order-content {
     padding-top: 30px;
-}
+} 
 
+#completed-order-content {
+    padding-top: 30px;
+}
 .popup-overlay {
     display: none;
     position: fixed;
